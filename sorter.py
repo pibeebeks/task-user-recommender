@@ -7,7 +7,7 @@ def task12():         #define the function
     dy1 = dy[['user_id','username','title']]  #we choose the relevant fields we need
     dz = pd.read_csv('users.csv',usecols=['username','short_bio'],encoding="utf-8") #we read the file which contains short bio
     dp = dz.merge(dy1, how='left', on = 'username') #we merge by username
-    dp.to_csv('output.csv',sep='\t', encoding='utf-8') #we define the name of the output
+    dp.to_csv('output.csv', encoding='utf-8') #we define the name of the output
 
 
 task12()  #we call the function
