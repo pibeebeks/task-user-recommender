@@ -2,7 +2,6 @@
 # coding: utf-8
 import math
 import pandas as pd
-import numpy as np
 import joblib
 
 
@@ -44,9 +43,9 @@ def recommend(user_id):
     interactions_full = interactions_from_selected_users.groupby(['user_id'])['eventStrength']\
     .sum().apply(smooth_user_preference).reset_index()
     popular_users = interactions_full.sort_values('eventStrength', ascending=False)
-    isSelf = popular_users['user_id'] != user_id
-    popular_users.drop(['eventStrength'], axis = 1, inplace=True)
-    return popular_users[isSelf]
+    is_Self = popular_users['user_id'] != user_id
+    popular_users.drop(['eventStrength'], axis=1, inplace=True)
+    return popular_users[is_Self]
 
 recommend(1)
 
