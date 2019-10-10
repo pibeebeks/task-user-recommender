@@ -8,7 +8,12 @@ def task12():         #define the function
     dz = pd.read_csv('users.csv',usecols=['username','short_bio'],encoding="utf-8") #we read the file which contains short bio
     dp = dz.merge(dy1, how='left', on = 'username') #we merge by username
     dp.to_csv('output.csv', encoding='utf-8') #we define the name of the output
-
+'''
+Function to define user preference.
+    
+    Returns
+    (Lists): Title of article and/or short bio of user
+'''
 
 task12()  #we call the function
 
