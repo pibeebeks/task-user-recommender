@@ -126,8 +126,6 @@ posts['content'] = posts['content'].str.replace(r'\[.*?\]', '')
 # Remove image files
 posts['content'] = posts['content'].str.replace(r'\(.*?\)', '')
 
-
-
 # Importing 
 from sklearn.metrics.pairwise import linear_kernel
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -138,9 +136,6 @@ posts_tfidf = TfidfVectorizer(stop_words='english')
 posts_transf = posts_tfidf.fit_transform(posts['title'])
 
 cosine_similarity = linear_kernel(posts_transf, posts_transf)
-
-#indices = pd.Series(posts['content'].index)
-
 
 #Declaring a function that would use our model to recommend articles to a user
 
