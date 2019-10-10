@@ -3,15 +3,49 @@ import math
 #Class for Popularity based Recommender System model
 class popularity_recommender_py():
     def __init__(self):
+    '''
+    Function to save recommended output to a file 
+    
+    Parameters
+    recommender
+    (file):a .py file of the reccommender model
+
+    Returns
+    (): saves in popular.sav
+    '''
         self.train_data = None
         self.user_id = None
         self.popularity_recommendations = None
 
-    def smooth_user_preference(self, x):
+    def smooth_user_preference(self):
+    '''
+    Function to define user preference 
+    
+    Parameters
+    self
+    (int):user id
+
+    Returns
+    (float): logarithm base 2 of self
+    '''
         return math.log(1 + x, 2)
 
     #Create the popularity based recommender system model
     def create(self, train_data, user_id):
+    '''
+    Function to create popularity model based recommender 
+    
+    Parameters
+    self
+    (int):an int
+    train_data
+    (file):data file
+    user_id
+    (int):user id
+
+    Returns
+    (list): 10 top recommendations
+    '''
         self.train_data = train_data
         self.user_id = user_id
 
@@ -35,6 +69,18 @@ class popularity_recommender_py():
     #Use the popularity based recommender system model to
     #make recommendations
     def recommend(self, user_id):
+    '''
+    Function to make recomendations based on popularity model
+    
+    Parameters
+    self
+    (int):an int
+    user_id
+    (int):user id
+
+    Returns
+    (list): popular users
+    '''
         user_recommendations = self.popularity_recommendations
 
         popular_users = user_recommendations[user_recommendations['user_id'] != user_id]
