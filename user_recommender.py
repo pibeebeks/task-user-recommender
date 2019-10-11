@@ -10,17 +10,16 @@ try:
 except ImportError as i_error:
     print(i_error)
 
-else:
-
-    # Getting the data from the database and showing the tables
-    try:
-        mydb = mysql.connector.connect(host="remotemysql.com",
+# Getting the data from the database and showing the tables
+try:
+    my_db = mysql.connector.connect(host="remotemysql.com",
                                     user="8SawWhnha4",
                                     passwd="zFvOBIqbIz",
                                     database="8SawWhnha4")
 
-    except (ConnectionError,NameError):
-        print("Connection error")
+except ConnectionError:
+    print("Connection error")
+
 
     dbcursor = mydb.cursor()
 
@@ -59,6 +58,21 @@ else:
 
     cosine_similarity = linear_kernel(users_transform, users_transform)
 
+def recommend(index, cosine_sim=cosine_similarity):
+    """
+    Declaring a function that would use our model to fetch users similar to a given user based on user_bio
+    :param index: Int. User Id of user to recommend followers to
+    :param cosine_sim: cosine similarity matrix
+    :return: Pandas series of similar users based on bio
+    """
+    try:
+        idx = indices[index]
+        # Get the pairwise similarity scores of all names
+        # sorting them and getting top 10
+        print(f"Getting recommendations for {users['name'].iloc[idx]}")
+        similarity_scores = list(enumerate(cosine_sim[idx]))
+        similarity_scores = sorted(similarity_scores, key=lambda x: x[1], reverse=True)
+        similarity_scores = similarity_scores[1:11]
 
     def recommend(index, cosine_sim=cosine_similarity):
         """
@@ -79,12 +93,12 @@ else:
             # Get the names index
             lucid_index = [i[0] for i in similarity_scores]
 
-            # Return the top 10 most similar names
-            return users['name'].iloc[lucid_index]
-        except KeyError:
-            return 'This user shows no similarity'
-        except IndexError:
-            return 'This user has no bio'
+        # Return the top 10 most similar names
+        return users['name'].iloc[lucid_index]
+    except KeyError:
+        return 'Invalid User ID, Enter a valid User Id'
+    except IndexError:
+        return 'This user has no bio'
 
 
     def main():
