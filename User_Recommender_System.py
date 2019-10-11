@@ -70,6 +70,19 @@ cosine_similarity = linear_kernel(users_transf, users_transf)
 #Declaring a function that would use our model to fetch users similar to a given user based on user_bio
 
 def recommend(index, cosine_sim=cosine_similarity):
+    '''
+    Function to who to follow similar to user based on short bio
+
+    Parameters
+    index
+    (int):user id
+    cosine_sim
+    (int):cosine similarity of all users
+
+    Returns
+    (list): 10 most popular users similar to user or 
+    'This user has no follower recommemdation' when no user has close cosine similarity
+    '''
     try:
         id = indices[index]
         # Get the pairwsie similarity scores of all names
@@ -140,6 +153,19 @@ cosine_similarity = linear_kernel(posts_transf, posts_transf)
 #Declaring a function that would use our model to recommend articles to a user
 
 def recommend(index, cosine_sim=cosine_similarity):
+    '''
+    Function to return article similar to user's article based on title
+
+    Parameters
+    index
+    (int):user id
+    cosine_sim
+    (int):cosine similarity of all posts
+
+    Returns
+    (list): 10 most popular article titles similar to user article or 
+    'This user has no article recommemdation' when no article has close cosine similarity
+    '''
     try:
         id = indices[index]
         # Get the pairwsie similarity scores of all names
