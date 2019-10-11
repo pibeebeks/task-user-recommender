@@ -1,4 +1,3 @@
-import pandas as pd   #import the needed module
 " " " importation of pandas module" " "
 try:
     import pandas as pd   #import the needed module
