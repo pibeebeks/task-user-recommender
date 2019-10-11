@@ -1,4 +1,3 @@
-" " " importation of pandas module" " "
 import pandas as pd   #import the needed module
 def task12():         #define the function
     '''Function to define user preference.
