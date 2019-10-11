@@ -8,11 +8,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 # Getting the data from the database and showing the tables
+try:
+    mydb = mysql.connector.connect(host="remotemysql.com",
+                                user="8SawWhnha4",
+                                passwd="zFvOBIqbIz",
+                                database="8SawWhnha4")
 
-mydb = mysql.connector.connect(host="remotemysql.com",
-                               user="8SawWhnha4",
-                               passwd="zFvOBIqbIz",
-                               database="8SawWhnha4")
+except:
+    print("Connection error")
 
 dbcursor = mydb.cursor()
 
