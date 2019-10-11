@@ -63,9 +63,14 @@ def recommend(index, cosine_sim=COSINE_SIMILARITY):
     """
      Declaring a function that would use our model to fetch users
      similar to a given user based on user_bio
-    :param index: User Id of user to recommend followers to
-    :param cosine_sim: cosine similarity matrix
-    :return: Pandas series of similar users based on bio
+
+     index
+     (int): User Id of user to recommend followers to
+     cosine_sim
+     (int): cosine similarity matrix
+
+     return
+     (list): Pandas series of similar users based on bio
     """
     try:
         idx = INDICIES[index]
