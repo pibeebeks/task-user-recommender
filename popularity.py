@@ -11,9 +11,12 @@ def get_data():
     (Lists): Notifications table
     '''
     #Read the notifications table
-    notifications = pd.read_csv('https://raw.githubusercontent.com/pibeebeks/task-user-recommender/master/data/notifications.csv')
-    notifications.drop(['id', 'created_at', 'updated_at'], axis=1, inplace=True)
-    return notifications
+    try:
+        notifications = pd.read_csv('https://raw.githubusercontent.com/pibeebeks/task-user-recommender/master/data/notifications.csv')
+        notifications.drop(['id', 'created_at', 'updated_at'], axis=1, inplace=True)
+        return notifications
+    except:
+        print("unable to read file")
 
 def save_model(recommender):
     '''
@@ -36,14 +39,19 @@ def main():
     Returns
     ():
     '''
-    notifications = get_data()
-    train_data, test_data = train_test_split(notifications, test_size=0.40, random_state=0)
-    
-    recommender = rec.popularity_recommender_py()
-    recommender.create(train_data, 'user_id')
-    recommender.create(test_data, 'user_id')
+    try:
+        notifications = get_data()
+        train_data, test_data = train_test_split(notifications, test_size=0.40, random_state=0)
+        
+        recommender = rec.popularity_recommender_py()
+        recommender.create(train_data, 'user_id')
+        recommender.create(test_data, 'user_id')
 
-    save_model(recommender)
+        save_model(recommender)
+    
+    except:
+        print("Error saving model")
+
 
 if __name__ == '__main__':
     main()
