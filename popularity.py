@@ -1,7 +1,11 @@
-import pandas as pd
-import joblib
-from sklearn.model_selection import train_test_split
-import rec
+try:
+    import pandas as pd
+    import joblib
+    from sklearn.model_selection import train_test_split
+    import rec
+
+except ImportError as e:
+    print(e)
 
 def get_data():
     '''
@@ -11,12 +15,11 @@ def get_data():
     (Lists): Notifications table
     '''
     #Read the notifications table
-    try:
-        notifications = pd.read_csv('https://raw.githubusercontent.com/pibeebeks/task-user-recommender/master/data/notifications.csv')
-        notifications.drop(['id', 'created_at', 'updated_at'], axis=1, inplace=True)
-        return notifications
-    except:
-        print("unable to read file")
+
+    notifications = pd.read_csv('https://raw.githubusercontent.com/pibeebeks/task-user-recommender/master/data/notifications.csv')
+    notifications.drop(['id', 'created_at', 'updated_at'], axis=1, inplace=True)
+    return notifications
+
 
 def save_model(recommender):
     '''
@@ -49,8 +52,8 @@ def main():
 
         save_model(recommender)
     
-    except:
-        print("Error saving model")
+    except (NameError, ValueError) as e:
+        print("Error saving model",e)
 
 
 if __name__ == '__main__':

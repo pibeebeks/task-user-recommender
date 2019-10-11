@@ -153,8 +153,11 @@ def recommend(index, cosine_sim=cosine_similarity):
 
         # Return the top 10 most similar names
         return posts['content'].iloc[posts_index]
-    except:
-        return 'This user has no article recommendation'
+    except KeyError:
+        print('This user has no article recommendation')
+    except IndexError:
+        print("")
+
 
 recommend(4)   
 recommend(6) 

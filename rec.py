@@ -31,7 +31,7 @@ class popularity_recommender_py():
         result = 0
         try:
             result = math.log(1 + x, 2)
-        except:
+        except TypeError:
             print("non numeric value")
         return result
 
@@ -72,8 +72,8 @@ class popularity_recommender_py():
             #Get the top 10 recommendations
             self.popularity_recommendations = popular_users.head(10)
 
-        except:
-            print("Error creating recommender system")
+        except (NameError,KeyError) as nk_error:
+            print(nk_error)
     #Use the popularity based recommender system model to
     #make recommendations
     def recommend(self, user_id):
@@ -100,5 +100,5 @@ class popularity_recommender_py():
 
             return popular_users
 
-        except:
-            print("no recommendations for user")
+        except(NameError,KeyError) as nk_error:
+            print(nk_error)
