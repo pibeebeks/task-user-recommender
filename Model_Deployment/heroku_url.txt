@@ -8,4 +8,6 @@ api url for popular users recommendation: https://lucidrecommendation.herokuapp.
 api url for similar user's recommendation: https://lucidrecommendation.herokuapp.com/similar_user_recommend_api
 api url for Article recommendation: https://lucidrecommendation.herokuapp.com/article_recommend_api
 
+How to call the api,{"name": "name_of_the_user"}
+
 For direct api calls, postman can be used for testing before production
