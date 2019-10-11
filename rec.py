@@ -8,14 +8,7 @@ class PopularityRecommender():
     """ Class for Popularity based Recommender System model """
     def __init__(self):
         '''
-        Function to save recommended output to a file
-
-        Parameters
-        recommender
-        (file):a .py file of the reccommender model
-
-        Returns
-        (): saves in popular.sav
+        Function to initialize user id for the model
         '''
         self.train_data = None
         self.user_id = None
@@ -91,7 +84,7 @@ class PopularityRecommender():
     #make recommendations
     def recommend(self, user_id):
         '''
-        Function to make recomendations based on popularity model
+        Function to make follower recomendations based on popularity model
 
         Parameters
         self
