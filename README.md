@@ -12,6 +12,7 @@ argparse - pip install argparse<br/>
 numpy - pip install numpy<br/>
 mysql.connector - pip install mysql.connector<br/>
 sqlalchemy - pip install sqlalchemy<br/>
+Requirements for the User recommender system hosted on heroku can be found in the requirements.txt in the Model_Deployment folder <br />
 
 <b>Running/Deployment:</b>
 
@@ -19,3 +20,15 @@ Task 11: Open Command Prompt in the folder and run "python popularity.py"<br/>
 Task 12: Open Command Prompt in the folder and run "python sorter.py"<br/>
 Task 13: Open Command Prompt in the folder and run "python User_Recommender_System.py"<br/>
 Task 14: Open Command Prompt in the folder and run "python user_recommender.py"<br/>
+Task 22: <br />
+For GUI web app testing<br />
+For web app, click https://lucidrecommendation.herokuapp.com/
+
+For direct API calls, the following are the api urls<br />
+api url for popular users recommendation: https://lucidrecommendation.herokuapp.com/new_user_recommend_api
+api url for similar user's recommendation: https://lucidrecommendation.herokuapp.com/similar_user_recommend_api
+api url for Article recommendation: https://lucidrecommendation.herokuapp.com/article_recommend_api
+
+For direct api calls, postman can be used for testing before production, postman can be downloaded <a href="https://www.getpostman.com/downloads/">here</a>
+
+How to call the api, create a json object in this format {"name": "name of the user"} and call the api 
