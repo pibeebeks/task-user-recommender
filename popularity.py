@@ -27,20 +27,18 @@ def save_model(recommender):
     
     Parameters
     recommender
-    (file):a .py file of the reccommender model
+    (file):a file of the reccommender model
 
     Returns
-    (): saves in popular.sav
+    (): The list of file names in which the data is stored
     '''
     filename = 'popular.sav'
     joblib.dump(recommender, filename)
 
 def main():
     '''
-    Function to define main 
-    
-    Returns
-    ():
+    Function to classify and define train data and test data
+
     '''
     try:
         notifications = get_data()
