@@ -9,15 +9,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Getting the data from the database and showing the tables
 try:
-    mydb = mysql.connector.connect(host="remotemysql.com",
-                                user="8SawWhnha4",
-                                passwd="zFvOBIqbIz",
-                                database="8SawWhnha4")
+    my_db = mysql.connector.connect(host="remotemysql.com",
+                                    user="8SawWhnha4",
+                                    passwd="zFvOBIqbIz",
+                                    database="8SawWhnha4")
 
-except:
+except ConnectionError:
     print("Connection error")
 
-dbcursor = mydb.cursor()
 
 # Extracting the table relevant for users and their bio
 engine = create_engine('mysql+mysqlconnector://8SawWhnha4:zFvOBIqbIz@remotemysql.com/8SawWhnha4')
@@ -58,7 +57,7 @@ cosine_similarity = linear_kernel(users_transform, users_transform)
 def recommend(index, cosine_sim=cosine_similarity):
     """
     Declaring a function that would use our model to fetch users similar to a given user based on user_bio
-    :param index: User Id of user to recommend followers to
+    :param index: Int. User Id of user to recommend followers to
     :param cosine_sim: cosine similarity matrix
     :return: Pandas series of similar users based on bio
     """
@@ -77,7 +76,7 @@ def recommend(index, cosine_sim=cosine_similarity):
         # Return the top 10 most similar names
         return users['name'].iloc[lucid_index]
     except KeyError:
-        return 'This user shows no similarity'
+        return 'Invalid User ID, Enter a valid User Id'
     except IndexError:
         return 'This user has no bio'
 
