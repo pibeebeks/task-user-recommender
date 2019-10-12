@@ -19,7 +19,9 @@ Requirements for the User recommender system hosted on heroku can be found in th
 Task 11: Open Command Prompt in the folder and run "python popularity.py"<br/>
 Task 12: Open Command Prompt in the folder and run "python sorter.py"<br/>
 Task 13: Open Command Prompt in the folder and run "python User_Recommender_System.py"<br/>
-Task 14: Open Command Prompt in the folder and run "python user_recommender.py"<br/>
+Task 14: Open Command Prompt in the folder and Call "the user_recommender.py  <user_id>" in the command line.
+For example if we want to get the user recommendations for a particular user with user_id 7 we'd call the app as such
+python user_recommended.py 7<br/>
 Task 22: <br />
 For GUI web app testing<br />
 For web app, click https://lucidrecommendation.herokuapp.com/
