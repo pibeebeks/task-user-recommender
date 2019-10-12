@@ -12,7 +12,7 @@ argparse - pip install argparse<br/>
 numpy - pip install numpy<br/>
 mysql.connector - pip install mysql.connector<br/>
 sqlalchemy - pip install sqlalchemy<br/>
-Requirements for the User recommender system hosted on heroku can be found in the requirements.txt in the Model_Deployment folder <br />
+Requirements for the User recommender system hosted on heroku can be found in the requirements.txt in the Model_Deployment folder, click <a href="https://github.com/pibeebeks/task-user-recommender/blob/master/Model_Deployment/requirements.txt">here</a> <br />
 
 <b>Running/Deployment:</b>
 
@@ -25,10 +25,16 @@ For GUI web app testing<br />
 For web app, click https://lucidrecommendation.herokuapp.com/
 
 For direct API calls, the following are the api urls<br />
-api url for popular users recommendation: https://lucidrecommendation.herokuapp.com/new_user_recommend_api
-api url for similar user's recommendation: https://lucidrecommendation.herokuapp.com/similar_user_recommend_api
-api url for Article recommendation: https://lucidrecommendation.herokuapp.com/article_recommend_api
+api url for popular users recommendation: https://lucidrecommendation.herokuapp.com/new_user_recommend_api <br /> 
+api url for similar user's recommendation: https://lucidrecommendation.herokuapp.com/similar_user_recommend_api <br /> 
+api url for Article recommendation: https://lucidrecommendation.herokuapp.com/article_recommend_api 
 
 For direct api calls, postman can be used for testing before production, postman can be downloaded <a href="https://www.getpostman.com/downloads/">here</a>
 
-How to call the api, create a json object in this format {"name": "name of the user"} and call the api 
+How to call the api, create a json object in this format {"name": "name of the user"} and call the api <br /> 
+
+It can be tested by importing the following postman collections in the postman app <br />
+https://www.getpostman.com/collections/46f5401336e7c29af100
+https://www.getpostman.com/collections/06b621578adb09178ea0
+https://www.getpostman.com/collections/b79eca9517ade75d3799
+
